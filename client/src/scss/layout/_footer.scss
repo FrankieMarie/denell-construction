@@ -1,0 +1,81 @@
+.footer {
+  bottom: 0;
+  width: 100%;
+  background: $color-dark-grey;
+  color: $color-white;
+  padding: 6rem 0;
+  font-size: 1.1rem;
+
+  &__info {
+    border-top: 3px solid $color-quaternary;
+    display: inline-block;
+    padding-top: 1rem;
+  }
+
+  &__nav {
+    text-align: center;
+    border-top: 3px solid $color-quaternary;
+    padding-top: 1rem;
+    display: inline-block;
+    width: 50%
+  }
+
+  &__nav-list {
+    list-style: none;
+  }
+
+  &__nav-item {
+    cursor: pointer;
+    @include smoothTransition;
+    &:not(:last-child) {
+      margin-bottom: 1rem;
+    }
+    &:hover {
+      color: $color-tertiary;
+    }
+  }
+
+  &__item {
+    list-style: none;
+    &:not(:last-child) {
+      margin-bottom: 1rem;
+    }
+
+    i { padding-right: 1rem; }
+  }
+
+  &__link {
+    color: $color-tertiary;
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  &__copyright {
+    text-align: right;
+    float: right;
+    border-top: 3px solid $color-quaternary;
+    padding-top: 1rem;
+    &--text {
+      display: inline-block;
+    }
+  }
+
+  &__logobox {
+    height: 10rem;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 3rem;
+    &--logo {
+      cursor: pointer;
+      background-image: url("../images/denell-construction-logo-color.png");
+      background-position: center;
+      background-size: contain;
+      background-repeat: no-repeat;
+      height: 10rem;
+    }
+  }
+}
+
+.bottom-nav {
+  text-align: center;
+}

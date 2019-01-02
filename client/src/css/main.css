@@ -1,0 +1,526 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,500,700");
+/*
+0-600px:      Phone
+600-900px:    Tablet Portrait
+900-1200px:   Tablet Landscape
+[1200-1800px: normal styles apply]
+1800 + :      Big desktop
+$breakpoint argument choices
+- phone
+- tab-port
+- tab-land
+- big-desktop
+ORDER: Base + Typography > General Layout + Grid > Page Layout > Components
+1em = 16px
+*/
+@keyframes iconshake {
+  0% {
+    transform: rotate(0); }
+  15% {
+    transform: rotate(5deg); }
+  30% {
+    transform: rotate(-5deg); }
+  45% {
+    transform: rotate(4deg); }
+  60% {
+    transform: rotate(-4deg); }
+  75% {
+    transform: rotate(2deg); }
+  85% {
+    transform: rotate(-2deg); }
+  92% {
+    transform: rotate(1deg); }
+  100% {
+    transform: rotate(0); } }
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; }
+
+html {
+  font-size: 62.5%; }
+  @media (max-width: 75em) {
+    html {
+      font-size: 56.25%; } }
+  @media (max-width: 56.25em) {
+    html {
+      font-size: 50%; } }
+  @media (min-width: 112.5em) {
+    html {
+      font-size: 75%; } }
+
+body {
+  box-sizing: border-box;
+  background-color: #fbfbfb; }
+
+button {
+  cursor: pointer; }
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  line-height: 1.7;
+  letter-spacing: 1px; }
+
+.heading-primary {
+  color: #fbfbfb;
+  margin: 6rem 0; }
+  .heading-primary--main {
+    display: block;
+    font-size: 5rem;
+    font-weight: 500;
+    text-shadow: 0.5rem 1rem 2rem rgba(34, 34, 34, 0.5);
+    padding-bottom: 3rem; }
+  .heading-primary--sub {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 400; }
+
+.btn {
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  padding: 1.5rem 2.5rem;
+  color: #fbfbfb;
+  font-size: 2rem;
+  font-weight: 500;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  letter-spacing: 0.5px;
+  margin-right: -0.5px;
+  transition: background 250ms ease-in-out,  transform 150ms ease; }
+
+.btn-orange {
+  background: #ef824a;
+  border: 2px solid #ef824a; }
+  .btn-orange:hover {
+    background: #ff9159; }
+
+.btn-clear {
+  background: transparent;
+  border: 2px solid #fbfbfb; }
+  .btn-clear:hover {
+    background: #7b37a3; }
+
+.nav {
+  z-index: 9999;
+  position: absolute;
+  top: 4rem;
+  right: 4rem;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  transition: all 150ms ease-in-out, transform 150ms ease; }
+  .nav__logo {
+    background-image: url("../images/denell-construction-logo-white.png");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 8rem;
+    width: 18vw;
+    margin-top: -2rem;
+    transition: all 150ms ease-in-out, transform 150ms ease; }
+  .nav__list {
+    display: flex;
+    font-size: 1.6rem; }
+  .nav__item {
+    list-style: none;
+    cursor: pointer; }
+    .nav__item:not(:last-child) {
+      padding-right: 4rem; }
+      @media (max-width: 31.25em) {
+        .nav__item:not(:last-child) {
+          padding-right: 2rem; } }
+    @media (max-width: 31.25em) {
+      .nav__item {
+        padding-top: 2rem; } }
+  .nav__link {
+    text-decoration: none;
+    color: #fbfbfb;
+    transition: all 150ms ease-in-out, transform 150ms ease; }
+    .nav__link:hover {
+      color: #ef824a; }
+    .nav__link--projects {
+      border: 2px solid #fbfbfb;
+      border-radius: 5px;
+      padding: .5rem 1rem;
+      transition: all 150ms ease-in-out, transform 150ms ease; }
+      .nav__link--projects:hover {
+        border: 2px solid #ef824a; }
+
+.row {
+  max-width: 114rem;
+  margin: 0 auto; }
+  .row:not(:last-child) {
+    margin-bottom: 8rem; }
+  .row::after {
+    content: "";
+    display: table;
+    clear: both; }
+  .row [class^="col-"] {
+    float: left; }
+    .row [class^="col-"]:not(:last-child) {
+      margin-right: 6rem; }
+      @media (max-width: 56.25em) {
+        .row [class^="col-"]:not(:last-child) {
+          margin-right: 0 !important;
+          margin-bottom: 6rem !important; } }
+    @media (max-width: 56.25em) {
+      .row [class^="col-"] {
+        width: 100% !important;
+        padding: 0 3rem; } }
+  .row .col-1-of-2 {
+    width: calc((100% - 6rem) / 2); }
+  .row .col-1-of-3 {
+    width: calc((100% - 2 * 6rem) / 3); }
+    @media (max-width: 56.25em) {
+      .row .col-1-of-3 {
+        height: 40rem !important; } }
+  .row .col-1-of-4 {
+    width: calc((100% - 3 * 6rem) / 4); }
+  .row .col-2-of-3 {
+    width: calc(2 * ((100% - 2 * 6rem) / 3) + 6rem); }
+  .row .col-2-of-4 {
+    width: calc(2 * ((100% - 3 * 6rem) / 4) + 6rem); }
+  .row .col-3-of-4 {
+    width: calc(3 * ((100% - 3 * 6rem) / 4) + 2 * 6rem); }
+
+.header {
+  height: 100vh;
+  background-image: linear-gradient(to bottom, rgba(78, 51, 185, 0.97), rgba(123, 55, 163, 0.97)), url("../images/one.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative; }
+  .header__text-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center; }
+  .header__btn:first-child {
+    margin-right: 6rem; }
+
+.about {
+  width: 100vw; }
+  .about .values {
+    display: flex;
+    background-color: #383838;
+    padding: 0 3rem; }
+    .about .values__card {
+      text-align: center;
+      padding: 6rem 3rem;
+      color: #fbfbfb; }
+      .about .values__card--icon {
+        color: #ef824a;
+        font-size: 4rem;
+        padding-bottom: 3rem; }
+        .about .values__card--icon:hover, .about .values__card--icon:focus {
+          animation: iconshake 0.5s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+          backface-visibility: hidden;
+          transform-origin: top; }
+      .about .values__card--heading {
+        font-size: 2rem;
+        font-weight: 500;
+        padding-bottom: 3rem; }
+      .about .values__card--text {
+        font-size: 1.6rem; }
+  .about .services {
+    padding: 8rem 0;
+    background-image: linear-gradient(to bottom, #fbfbfb, #e6e6e6); }
+    .about .services__heading {
+      text-align: center;
+      letter-spacing: 1px;
+      letter-spacing: 1px;
+      margin-right: -1px;
+      color: #236a72;
+      font-size: 4rem;
+      font-weight: 400;
+      margin-bottom: 2rem;
+      text-transform: uppercase; }
+      .about .services__heading span {
+        font-weight: 700; }
+    .about .services__group {
+      display: flex;
+      padding: 0 3rem; }
+    .about .services__card {
+      text-align: center;
+      padding: 6rem 3rem; }
+      .about .services__card--heading {
+        padding-bottom: 1.5rem;
+        font-size: 2rem;
+        color: #383838; }
+      .about .services__card--text {
+        font-size: 1.6rem; }
+      .about .services__card--icon {
+        padding-bottom: 1.5rem;
+        font-size: 4rem;
+        color: #4e33b9; }
+
+.cta {
+  width: 100%;
+  background: #236a72;
+  padding: 6rem 0;
+  text-align: center;
+  color: #fbfbfb; }
+  .cta__child:not(:last-child) {
+    margin-bottom: 2rem; }
+  .cta__heading {
+    font-size: 4rem;
+    font-weight: 400; }
+  .cta__text {
+    font-size: 2rem;
+    font-weight: 400;
+    letter-spacing: 1px;
+    letter-spacing: 1px;
+    margin-right: -1px; }
+  .cta__number {
+    font-size: 4rem;
+    font-weight: 700;
+    color: #ef824a; }
+
+.testimonials {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  align-items: center;
+  padding: 8rem 6rem;
+  background: #e6e6e6; }
+  .testimonials__content {
+    width: 40%; }
+  .testimonials__heading {
+    letter-spacing: 1px;
+    letter-spacing: 1px;
+    margin-right: -1px;
+    color: #236a72;
+    font-size: 4rem;
+    font-weight: 400;
+    margin-bottom: 6rem;
+    text-transform: uppercase; }
+    .testimonials__heading span {
+      font-weight: 700; }
+  .testimonials__client {
+    color: #4e33b9;
+    font-size: 2rem;
+    padding-bottom: 1.5rem; }
+  .testimonials__icon {
+    color: #ef824a;
+    font-size: 6rem;
+    cursor: pointer; }
+    .testimonials__icon--quote {
+      font-size: 2rem;
+      color: #4e33b9; }
+  .testimonials__quote {
+    color: #383838;
+    font-size: 1.6rem;
+    padding-bottom: 3rem; }
+
+.footer {
+  bottom: 0;
+  width: 100%;
+  background: #383838;
+  color: #fbfbfb;
+  padding: 6rem 0;
+  font-size: 1.1rem; }
+  .footer__info {
+    border-top: 3px solid #236a72;
+    display: inline-block;
+    padding-top: 1rem; }
+  .footer__nav {
+    text-align: center;
+    border-top: 3px solid #236a72;
+    padding-top: 1rem;
+    display: inline-block;
+    width: 50%; }
+  .footer__nav-list {
+    list-style: none; }
+  .footer__nav-item {
+    cursor: pointer;
+    transition: all 150ms ease-in-out, transform 150ms ease; }
+    .footer__nav-item:not(:last-child) {
+      margin-bottom: 1rem; }
+    .footer__nav-item:hover {
+      color: #ef824a; }
+  .footer__item {
+    list-style: none; }
+    .footer__item:not(:last-child) {
+      margin-bottom: 1rem; }
+    .footer__item i {
+      padding-right: 1rem; }
+  .footer__link {
+    color: #ef824a;
+    text-decoration: none;
+    font-weight: 500; }
+  .footer__copyright {
+    text-align: right;
+    float: right;
+    border-top: 3px solid #236a72;
+    padding-top: 1rem; }
+    .footer__copyright--text {
+      display: inline-block; }
+  .footer__logobox {
+    height: 10rem;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 3rem; }
+    .footer__logobox--logo {
+      cursor: pointer;
+      background-image: url("../images/denell-construction-logo-color.png");
+      background-position: center;
+      background-size: contain;
+      background-repeat: no-repeat;
+      height: 10rem; }
+
+.bottom-nav {
+  text-align: center; }
+
+.project {
+  padding: 3rem 0;
+  background-color: #383838;
+  min-height: 100vh; }
+  .project__heading {
+    text-align: center; }
+    .project__heading--main {
+      margin-top: 1rem;
+      font-weight: 400;
+      color: #fbfbfb;
+      font-size: 4rem; }
+    .project__heading--sub {
+      font-weight: 700; }
+  .project__logo {
+    cursor: pointer;
+    background-image: url("../images/denell-construction-logo-purple.png");
+    background-position: left;
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 8rem;
+    width: 18vw;
+    transition: all 150ms ease-in-out, transform 150ms ease; }
+  .project__album {
+    text-align: center; }
+  .project__title {
+    font-size: 2rem;
+    padding-bottom: .5rem;
+    text-decoration: none;
+    color: #fbfbfb;
+    transition: all 150ms ease-in-out, transform 150ms ease; }
+    .project__title:hover {
+      color: #ef824a; }
+  .project__thumbnail {
+    width: 100%;
+    height: 20rem;
+    object-fit: cover;
+    cursor: pointer; }
+  .project__btn button {
+    margin-top: 2rem;
+    float: right;
+    font-size: 1.2rem;
+    padding: 1rem 2rem; }
+
+.album {
+  padding: 3rem 6rem;
+  background-color: #383838;
+  min-height: 100vh; }
+  .album__title {
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 500;
+    color: #fbfbfb; }
+  .album__img {
+    height: 25rem;
+    object-fit: cover;
+    width: 100%; }
+
+.lightbox-target {
+  position: fixed;
+  top: -100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  width: 100vw;
+  opacity: 0;
+  -webkit-transition: opacity .5s ease-in-out;
+  -moz-transition: opacity .5s ease-in-out;
+  -o-transition: opacity .5s ease-in-out;
+  transition: opacity .5s ease-in-out;
+  overflow: hidden; }
+
+.lightbox-target img {
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  max-height: 0%;
+  max-width: 0%;
+  border: 3px solid white;
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+  box-sizing: border-box;
+  -webkit-transition: .5s ease-in-out;
+  -moz-transition: .5s ease-in-out;
+  -o-transition: .5s ease-in-out;
+  transition: .5s ease-in-out; }
+
+/* Styles the close link, adds the slide down transition */
+a.lightbox-close {
+  display: block;
+  width: 50px;
+  height: 50px;
+  box-sizing: border-box;
+  background: white;
+  color: black;
+  text-decoration: none;
+  position: absolute;
+  top: -80px;
+  right: 0;
+  -webkit-transition: .5s ease-in-out;
+  -moz-transition: .5s ease-in-out;
+  -o-transition: .5s ease-in-out;
+  transition: .5s ease-in-out; }
+
+/* Provides part of the "X" to eliminate an image from the close link */
+a.lightbox-close:before {
+  content: "";
+  display: block;
+  height: 30px;
+  width: 1px;
+  background: black;
+  position: absolute;
+  left: 26px;
+  top: 10px;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg); }
+
+/* Provides part of the "X" to eliminate an image from the close link */
+a.lightbox-close:after {
+  content: "";
+  display: block;
+  height: 30px;
+  width: 1px;
+  background: black;
+  position: absolute;
+  left: 26px;
+  top: 10px;
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg); }
+
+/* Uses the :target pseudo-class to perform the animations upon clicking the .lightbox-target anchor */
+.lightbox-target:target {
+  opacity: 1;
+  top: 0;
+  bottom: 0; }
+
+.lightbox-target:target img {
+  max-height: 50rem;
+  max-width: 60rem; }
+
+.lightbox-target:target a.lightbox-close {
+  top: 0px; }

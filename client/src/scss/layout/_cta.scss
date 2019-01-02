@@ -1,0 +1,31 @@
+.cta {
+  width: 100%;
+  background: $color-quaternary;
+  padding: 6rem 0;
+  text-align: center;
+  color: $color-white;
+
+  &__child {
+    &:not(:last-child) {
+      margin-bottom: 2rem;
+    }
+  }
+
+  &__heading {
+    font-size: 4rem;
+    font-weight: 400;
+  }
+
+  &__text {
+    font-size: 2rem;
+    font-weight: 400;
+    letter-spacing: 1px;
+    @include letterSpacing(1px);
+  }
+
+  &__number {
+    font-size: 4rem;
+    font-weight: 700;
+    color: $color-tertiary;
+  }
+}
