@@ -6,22 +6,36 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
+  padding: 0 4rem 0 10rem;
+
   @include smoothTransition;
+
+  @include respond(tab-port) {
+    right: 0;
+    padding-left: 6rem;
+  }
+  @include respond(five-hundred) {
+    margin-right: 2rem;
+    width: 50%;
+    left: 0;
+  }
 
   &__logo {
     background-image: url("../images/denell-construction-logo-white.png");
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
-    height: 8rem;
-    width: 18vw;
+    height: 10rem;
+    width: 10rem;
     margin-top: -2rem;
+
     @include smoothTransition;
   }
 
   &__list {
     display: flex;
     font-size: $default-font-size;
+    padding-top: 2rem;
   }
 
   &__item {
@@ -29,12 +43,19 @@
     cursor: pointer;
     &:not(:last-child) {
       padding-right: 4rem;
-      @include respond(five-hundred) {
-        padding-right: 2rem;
+      @include respond(tab-port) {
+        padding-right: 1.5rem;
       }
     }
+
+    @include respond(tab-port) {
+      padding-top: .5rem;
+      font-size: 1.4rem;
+    }
+
     @include respond(five-hundred) {
-      padding-top: 2rem;
+      visibility: hidden;
+      width: 0;
     }
   }
 
@@ -54,6 +75,27 @@
       &:hover {
         border: 2px solid $color-tertiary;
       }
+    }
+  }
+
+  &__arrow {
+    visibility: hidden;
+    @include respond(five-hundred) {
+      z-index: 999999;
+      cursor: pointer;
+      visibility: visible;
+      float: right;
+      margin-top: 6rem;
+      margin-right: 4rem;
+      width: 0;
+      height: 0;
+      border-left: 12px solid transparent;
+      border-right: 12px solid transparent;
+      border-top: 12px solid $color-tertiary;
+      background-color: rgba($color-tertiary, 0.25);
+      box-shadow: 0px 0 10px 5px rgba($color-tertiary, 0.25);
+      border-bottom-left-radius: 20px;
+      border-bottom-right-radius: 20px;
     }
   }
 }

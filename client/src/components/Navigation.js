@@ -5,7 +5,7 @@ class Navigation extends Component {
   render() {
     return (
       <div>
-        <nav className="nav">
+        <nav className="nav ul">
           <div className="nav__logo"/>
           <ul className="nav__list">
             <li className="nav__item">
@@ -48,6 +48,15 @@ class Navigation extends Component {
             </li>
           </ul>
         </nav>
+        <Link
+          className="nav__link"
+          to="about"
+          spy={true}
+          smooth={true}
+          duration={1000}
+        >
+          <div className="nav__arrow" />
+        </Link>
       </div>
     );
   }

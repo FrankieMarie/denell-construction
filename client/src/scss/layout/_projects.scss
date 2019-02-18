@@ -1,7 +1,24 @@
 .project {
   padding: 3rem 0;
-  background-color: $color-dark-grey;
+  background-color: $color-white;
   min-height: 100vh;
+  @include respond(tab-land) {
+    padding: 6rem;
+
+    .project__logo,
+    .project__heading--main {
+      height: 10rem !important;
+    }
+
+    .project__heading {
+      margin-bottom: 4rem;
+    }
+
+    .project__logo {
+      background-position: center;
+      margin-bottom: 4rem;
+    }
+  }
 
   &__heading {
     text-align: center;
@@ -9,7 +26,7 @@
     &--main {
       margin-top: 1rem;
       font-weight: 400;
-      color: $color-white;
+      color: $color-black;
       font-size: 4rem;
     }
     &--sub {
@@ -19,13 +36,14 @@
 
   &__logo {
     cursor: pointer;
-    background-image: url("../images/denell-construction-logo-purple.png");
+    background-image: url("../images/denell-construction-logo-color.png");
     background-position: left;
     background-size: contain;
     background-repeat: no-repeat;
     height: 8rem;
     width: 18vw;
     @include smoothTransition;
+
   }
 
   &__album {
@@ -36,7 +54,7 @@
     font-size: 2rem;
     padding-bottom: .5rem;
     text-decoration: none;
-    color: $color-white;
+    color: $color-black;
     @include smoothTransition;
     &:hover {
       color: $color-tertiary;
@@ -46,12 +64,19 @@
   &__thumbnail {
     width: 100%;
     height: 20rem;
+    border-radius: 5px;
     object-fit: cover;
     cursor: pointer;
+    transition: $transition;
+    &:hover {
+      -webkit-box-shadow: $box-shadow;
+      -moz-box-shadow: $box-shadow;
+      box-shadow: $box-shadow;
+    }
   }
 
   &__btn {
-    button {
+    a {
       margin-top: 2rem;
       float: right;
       font-size: 1.2rem;
@@ -63,121 +88,57 @@
 // Single project images
 .album {
   padding: 3rem 6rem;
-  background-color: $color-dark-grey;
+  background-color: $color-white;
   min-height: 100vh;
+
+  .loading { margin-top: 3rem; }
+
+  a {
+    padding: 1rem;
+  }
 
   &__title {
     text-align: center;
     font-size: 3rem;
     font-weight: 500;
-    color: $color-white;
+    color: $color-black;
+  }
+
+  &__group {
+    margin-top: 6rem;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+
+  &__container {
+    width: calc((100% - 3 * #{$gutter-horizontal}) / 4);
+    &:not(:nth-child(4n)) {
+      margin: 0 3rem 3rem 0;
+    }
+    @include respond(tab-land) {
+      width: calc((100% - 3 * #{$gutter-horizontal}) / 3);
+      &:not(:nth-child(3n)) {
+        margin: 0 3rem 3rem 0;
+      }
+    }
+    @include respond(tab-port) {
+      width: calc((100% - 3 * #{$gutter-horizontal}) / 2);
+      &:not(:nth-child(even)) {
+        margin: 0 3rem 3rem 0;
+      }
+    }
+    @include respond(phone) {
+      width: 100%;
+      margin: 0 0 3rem 0;
+    }
   }
 
   &__img {
+    cursor: pointer;
     height: 25rem;
-    object-fit: cover;
     width: 100%;
+    object-fit: cover;
+    border-radius: 5px;
   }
 }
-
-// Lightbox on selected image
-.lightbox-target {
-  position: fixed;
-  top: -100%;
-  width: 100%;
-  background: rgba(0,0,0,.7);
-  width: 100vw;
-  opacity: 0;
-  -webkit-transition: opacity .5s ease-in-out;
-  -moz-transition: opacity .5s ease-in-out;
-  -o-transition: opacity .5s ease-in-out;
-  transition: opacity .5s ease-in-out;
-  overflow: hidden;
-  }
-  .lightbox-target img {
-    margin: auto;
-    position: absolute;
-    top: 0;
-    left:0;
-    right:0;
-    bottom: 0;
-    max-height: 0%;
-    max-width: 0%;
-    border: 3px solid white;
-    box-shadow: 0px 0px 8px rgba(0,0,0,.3);
-    box-sizing: border-box;
-    -webkit-transition: .5s ease-in-out;
-    -moz-transition: .5s ease-in-out;
-    -o-transition: .5s ease-in-out;
-    transition: .5s ease-in-out;
-    }
-
-    /* Styles the close link, adds the slide down transition */
-
-    a.lightbox-close {
-    display: block;
-    width:50px;
-    height:50px;
-    box-sizing: border-box;
-    background: white;
-    color: black;
-    text-decoration: none;
-    position: absolute;
-    top: -80px;
-    right: 0;
-    -webkit-transition: .5s ease-in-out;
-    -moz-transition: .5s ease-in-out;
-    -o-transition: .5s ease-in-out;
-    transition: .5s ease-in-out;
-    }
-
-    /* Provides part of the "X" to eliminate an image from the close link */
-
-    a.lightbox-close:before {
-    content: "";
-    display: block;
-    height: 30px;
-    width: 1px;
-    background: black;
-    position: absolute;
-    left: 26px;
-    top:10px;
-    -webkit-transform:rotate(45deg);
-    -moz-transform:rotate(45deg);
-    -o-transform:rotate(45deg);
-    transform:rotate(45deg);
-    }
-
-    /* Provides part of the "X" to eliminate an image from the close link */
-
-    a.lightbox-close:after {
-    content: "";
-    display: block;
-    height: 30px;
-    width: 1px;
-    background: black;
-    position: absolute;
-    left: 26px;
-    top:10px;
-    -webkit-transform:rotate(-45deg);
-    -moz-transform:rotate(-45deg);
-    -o-transform:rotate(-45deg);
-    transform:rotate(-45deg);
-    }
-
-    /* Uses the :target pseudo-class to perform the animations upon clicking the .lightbox-target anchor */
-
-    .lightbox-target:target {
-    opacity: 1;
-    top: 0;
-    bottom: 0;
-    }
-
-    .lightbox-target:target img {
-    max-height: 50rem;
-    max-width: 60rem;
-    }
-
-    .lightbox-target:target a.lightbox-close {
-    top: 0px;
-    }

@@ -38,3 +38,22 @@ export const getSingleProject = (id) => dispatch => {
         payload: err
       }))
 }
+
+// Add new Project
+export const ADD_PROJECT_SUCCESS = 'ADD_PROJECT_SUCCESS';
+export const ADD_PROJECT_FAILED = 'ADD_PROJECT_FAILED';
+
+export const addProject = (payload) => dispatch => {
+  axios.post('/api/projects/new')
+    .then(res => {
+      dispatch({
+        type: ADD_PROJECT_SUCCESS,
+        payload,
+      })
+    })
+    .catch(err =>
+      dispatch({
+        type: ADD_PROJECT_FAILED,
+        payload: err
+      }))
+}

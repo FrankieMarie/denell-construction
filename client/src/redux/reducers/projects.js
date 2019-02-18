@@ -1,6 +1,7 @@
 import {
   GET_PROJECTS_SUCCESS,
   GET_PROJECT_SUCCESS,
+  ADD_PROJECT_SUCCESS,
 } from '../actions/projects';
 
 const initialState = {}
@@ -13,6 +14,11 @@ export default function(state = initialState, action) {
         projects: action.payload
       }
     case GET_PROJECT_SUCCESS:
+      return {
+        ...state,
+        project: action.payload
+      }
+    case ADD_PROJECT_SUCCESS:
       return {
         ...state,
         project: action.payload

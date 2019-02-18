@@ -22,14 +22,13 @@ class Projects extends Component {
             className="col-1-of-3 project__heading--main">
             Our <span className="project__heading--sub">Projects</span>
           </h1>
-          <div className="col-1-of-3 project__btn">
-            <button
-              className="btn btn-orange">
-              <i className="fas fa-plus"></i> Add Project
-            </button>
-          </div>
         </div>
         <div className="row">
+        {
+          _.isEmpty(projects) && (
+            <h2>Loading photo albums...</h2>
+          )
+        }
         {
           !_.isEmpty(projects) && (
             projects.map(project => {
@@ -46,6 +45,7 @@ class Projects extends Component {
                   alt="deafultImage"
                   onClick={() => history.push(`/project/${project._id}`)}
                 />
+                {/* <button>Delete</button> */}
               </div>
               )
             })

@@ -1,13 +1,16 @@
 .testimonials {
-  display: flex;
-  justify-content: space-between;
   text-align: center;
-  align-items: center;
-  padding: 8rem 6rem;
-  background: $color-light-grey;
+  padding: 8rem 10rem 10rem 10rem;
+  background: $color-white;
+  @include respond(phone) {
+    padding: 3rem;
+  }
 
   &__content {
     width: 40%;
+    @include respond(phone) {
+      width: 75%;
+    }
   }
 
   &__heading {
@@ -33,6 +36,7 @@
     color: $color-tertiary;
     font-size: 6rem;
     cursor: pointer;
+
 
     &--quote {
       font-size: 2rem;

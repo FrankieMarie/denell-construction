@@ -1,0 +1,46 @@
+.form {
+  @include absCenter;
+  top: 20%;
+  border: 1px solid $color-primary;
+  padding: 3rem;
+  border-radius: 5px;
+
+  h1 {
+    margin-bottom: 6rem;
+    text-align: center;
+    font-size: 3rem;
+  }
+  &__group {
+    margin-bottom: 2rem;
+    width: 350px;
+    label {
+      font-size: 1.6rem;
+      padding-right: 1rem;
+    }
+  }
+
+  &__field {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.6rem;
+    outline: none;
+    border: 1px solid $color-quaternary;
+    border-radius: 5px;
+    &:focus {
+      border: 1px solid $color-tertiary;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: space-between;
+    button, a {
+      width: 100%;
+      font-size: 1.4rem;
+      padding: 1rem 0;
+    }
+    button {
+      margin-right: 3rem;
+    }
+  }
+}

@@ -1,0 +1,13 @@
+ul {
+  padding: 0;
+  margin: 0;
+  list-style-type: none; }
+
+.carousel {
+  position: relative; }
+
+.carousel__slide {
+  display: none;
+  list-style-type: none; }
+  .carousel__slide--active {
+    display: block; }

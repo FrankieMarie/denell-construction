@@ -1,0 +1,26 @@
+// Resetting default styles
+ul {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+.carousel {
+  position: relative;
+}
+
+// Carousel slides
+.carousel__slides {
+  width: 100%;
+}
+.carousel__slide {
+  display: none;
+  list-style-type: none;
+
+  &--active {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}

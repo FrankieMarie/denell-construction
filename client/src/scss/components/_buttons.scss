@@ -4,19 +4,23 @@
   border-radius: 5px;
   padding: 1.5rem 2.5rem;
   color: $color-white;
-  font-size: 2rem;
+  font-size: 1.6rem;
   font-weight: 500;
   text-align: center;
   text-transform: uppercase;
-  letter-spacing: .5px;
   @include letterSpacing(.5px);
-  transition: background 250ms ease-in-out, 
+  transition: background 250ms ease-in-out,
               transform 150ms ease;
+  @include respond(tab-port) {
+    width: 100%;
+    margin: 0 0 6rem 0;
+  }
 }
 
 .btn-orange {
   background: $color-tertiary;
   border: 2px solid $color-tertiary;
+  text-decoration: none;
   &:hover {
     background: $color-tertiary-light;
   }
@@ -27,5 +31,26 @@
   border: 2px solid $color-white;
   &:hover {
     background: $color-secondary;
+  }
+}
+
+.btn-black {
+  background: transparent;
+  border: 2px solid $color-black;
+  outline: none;
+  border-radius: 5px;
+  padding: 1.5rem 2.5rem;
+  color: $color-black;
+  font-size: 1.6rem;
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: none;
+  @include letterSpacing(.5px);
+  transition: background 250ms ease-in-out,
+              transform 150ms ease;
+  &:hover {
+    color: $color-tertiary;
+    border: 2px solid $color-tertiary;
   }
 }
