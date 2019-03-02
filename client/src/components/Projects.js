@@ -1,67 +1,69 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import _ from 'lodash';
 import { Link } from 'react-router-dom';
-import { getAllProjects } from '../redux/actions/projects';
+import Lightbox from 'react-image-lightbox';
+import 'react-image-lightbox/style.css';
 
 class Projects extends Component {
-  componentDidMount() {
-    const { getAllProjects } = this.props;
-    getAllProjects();
+  constructor(props) {
+    super(props);
+    this.state = {
+      photoIndex: 0,
+      lightboxOpen: false,
+    }
   }
-
   render() {
-    const { projects, history } = this.props;
+  const { images } = this.props;
+  const { photoIndex, lightboxOpen } = this.state;
+  console.log('images', images);
     return (
-      <div className="project">
-        <div className="row project__heading">
-          <Link to="/">
-            <div className="col-1-of-3 project__logo" />
-          </Link>
+      <div className="projects">
+        <div className="row projects__heading">
+          <div className="projects__logo-container">
+            <Link to="/">
+              <div className="projects__logo" />
+            </Link>
+          </div>
           <h1
-            className="col-1-of-3 project__heading--main">
-            Our <span className="project__heading--sub">Projects</span>
+            className="projects__header projects__header--main">
+            Our <span className="projects__header projects__header--sub">Projects</span>
           </h1>
         </div>
-        <div className="row">
-        {
-          _.isEmpty(projects) && (
-            <h2>Loading photo albums...</h2>
-          )
-        }
-        {
-          !_.isEmpty(projects) && (
-            projects.map(project => {
+        <div className="row images">
+          { images.map((image, index) => {
               return (
-              <div className="col-1-of-4 project__album" key={project._id}>
-                <div>
-                  <Link className="project__title" to={`/project/${project._id}`}>
-                    {project.title}
-                  </Link>
-                </div>
+              <div className="image-container" key={image.id}>
                 <img
-                  className="project__thumbnail"
-                  src={`${process.env.PUBLIC_URL}/${project.defaultImage}`}
-                  alt="deafultImage"
-                  onClick={() => history.push(`/project/${project._id}`)}
+                  className="image-container__jpg"
+                  src={require(`../assets/gallery${image.path}`)}
+                  alt=""
+                  onClick={() => this.setState({ photoIndex: index, lightboxOpen: true })}
                 />
-                {/* <button>Delete</button> */}
               </div>
               )
             })
-        )}
+          }
         </div>
+        {lightboxOpen && (
+          <Lightbox
+            mainSrc={require(`../assets/gallery${images[photoIndex].path}`)}
+            nextSrc={require(`../assets/gallery${images[(photoIndex + 1) % images.length].path}`)}
+            prevSrc={require(`../assets/gallery${images[(photoIndex + images.length - 1) % images.length].path}`)}
+            onCloseRequest={() => this.setState({ lightboxOpen: false })}
+            onMovePrevRequest={() =>
+              this.setState({
+                photoIndex: (photoIndex + images.length - 1) % images.length,
+              })
+            }
+            onMoveNextRequest={() =>
+              this.setState({
+                photoIndex: (photoIndex + 1) % images.length,
+              })
+            }
+          />
+        )}
       </div>
     );
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    projects: _.get(state, 'projects.projects', {})
-  }
-}
-
-export default connect(mapStateToProps, {
-  getAllProjects,
-})(Projects);
+export default Projects;

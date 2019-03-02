@@ -544,108 +544,73 @@ ul {
 .bottom-nav {
   text-align: center; }
 
-.project {
+.projects {
   padding: 3rem 0;
   background-color: #fbfbfb;
   min-height: 100vh; }
   @media (max-width: 75em) {
-    .project {
-      padding: 6rem; }
-      .project .project__logo,
-      .project .project__heading--main {
-        height: 10rem !important; }
-      .project .project__heading {
-        margin-bottom: 4rem; }
-      .project .project__logo {
-        background-position: center;
-        margin-bottom: 4rem; } }
-  .project__heading {
-    text-align: center; }
-    .project__heading--main {
+    .projects {
+      margin: 0 6rem; } }
+  .projects__heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; }
+    @media (max-width: 37.5em) {
+      .projects__heading {
+        flex-direction: column; } }
+  .projects__header {
+    flex: 1 1 60%; }
+    @media (max-width: 37.5em) {
+      .projects__header {
+        flex: 1 1 100%; } }
+    .projects__header--main {
       margin-top: 1rem;
       font-weight: 400;
       color: #222222;
       font-size: 4rem; }
-    .project__heading--sub {
+    .projects__header--sub {
       font-weight: 700; }
-  .project__logo {
+  .projects__logo-container {
+    flex: 1 1 40%; }
+    @media (max-width: 37.5em) {
+      .projects__logo-container {
+        width: 100%; } }
+  .projects__logo {
     cursor: pointer;
     background-image: url("../images/denell-construction-logo-color.png");
     background-position: left;
     background-size: contain;
     background-repeat: no-repeat;
     height: 8rem;
-    width: 18vw;
-    transition: all 150ms ease-in-out, transform 150ms ease; }
-  .project__album {
-    text-align: center; }
-  .project__title {
-    font-size: 2rem;
-    padding-bottom: .5rem;
-    text-decoration: none;
-    color: #222222;
-    transition: all 150ms ease-in-out, transform 150ms ease; }
-    .project__title:hover {
-      color: #ef824a; }
-  .project__thumbnail {
     width: 100%;
-    height: 20rem;
-    border-radius: 5px;
-    object-fit: cover;
-    cursor: pointer;
-    transition: all 0.2s ease; }
-    .project__thumbnail:hover {
-      -webkit-box-shadow: 0px 3px 10px 5px rgba(56, 56, 56, 0.25);
-      -moz-box-shadow: 0px 3px 10px 5px rgba(56, 56, 56, 0.25);
-      box-shadow: 0px 3px 10px 5px rgba(56, 56, 56, 0.25); }
-  .project__btn a {
-    margin-top: 2rem;
-    float: right;
-    font-size: 1.2rem;
-    padding: 1rem 2rem; }
-
-.album {
-  padding: 3rem 6rem;
-  background-color: #fbfbfb;
-  min-height: 100vh; }
-  .album .loading {
-    margin-top: 3rem; }
-  .album a {
-    padding: 1rem; }
-  .album__title {
-    text-align: center;
-    font-size: 3rem;
-    font-weight: 500;
-    color: #222222; }
-  .album__group {
-    margin-top: 6rem;
-    display: flex;
-    justify-content: flex-start;
-    flex-wrap: wrap; }
-  .album__container {
-    width: calc((100% - 3 * 3rem) / 4); }
-    .album__container:not(:nth-child(4n)) {
-      margin: 0 3rem 3rem 0; }
-    @media (max-width: 75em) {
-      .album__container {
-        width: calc((100% - 3 * 3rem) / 3); }
-        .album__container:not(:nth-child(3n)) {
-          margin: 0 3rem 3rem 0; } }
-    @media (max-width: 56.25em) {
-      .album__container {
-        width: calc((100% - 3 * 3rem) / 2); }
-        .album__container:not(:nth-child(even)) {
-          margin: 0 3rem 3rem 0; } }
+    transition: all 150ms ease-in-out, transform 150ms ease; }
     @media (max-width: 37.5em) {
-      .album__container {
+      .projects__logo {
+        background-position: center; } }
+  .projects .images {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap; }
+    .projects .images .image-container {
+      width: calc((100% - 3 * 3rem) / 4);
+      margin-bottom: 2rem; }
+      @media (max-width: 75em) {
+        .projects .images .image-container {
+          width: calc((100% - 3 * 3rem) / 3);
+          margin-bottom: 3rem; } }
+      @media (max-width: 56.25em) {
+        .projects .images .image-container {
+          width: calc((100% - 3 * 3rem) / 2); } }
+      @media (max-width: 37.5em) {
+        .projects .images .image-container {
+          width: 100%;
+          margin: 0 6rem 3rem 6rem; } }
+      .projects .images .image-container__jpg {
+        cursor: pointer;
+        height: 25rem;
         width: 100%;
-        margin: 0 0 3rem 0; } }
-  .album__img {
-    cursor: pointer;
-    height: 25rem;
-    width: 100%;
-    object-fit: cover;
-    border-radius: 5px; }
+        object-fit: cover;
+        border-radius: 5px; }
 
 .form {
   position: absolute;

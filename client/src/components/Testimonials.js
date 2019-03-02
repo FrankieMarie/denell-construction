@@ -60,7 +60,7 @@ class Testimonials extends Component {
             !_.isEmpty(testimonials) &&
             testimonials.map((testimonial, index) => {
               return (
-                <div key={testimonial._id}>
+                <div key={testimonial.id}>
                   <li
                     className={
                       index === this.state.activeIndex
