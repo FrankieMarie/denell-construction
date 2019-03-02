@@ -12,12 +12,12 @@ export const testimonials = [
   {
     id: 3,
     author: 'Mindy',
-    body: 'Donec et turpis mauris. Sed sed mollis mauris. In iaculis quis quam sit amet dignissim. Nam elementum porta pulvinar. Aliquam sed massa placerat, porta nisl ac, finibus lorem.',
+    body: 'Donec et turpis mauris. Sed sed mollis mauris. In iaculis quis quam sit amet dignissim. Nam elementum porta pulvinar. Aliquam sed massa placerat, porta nisl ac, finibus lorem, porta nisl ac, finibus lorem.',
   },
   {
     id: 4,
     author: 'Jacob',
-    body: 'Nam lacinia magna et dui dapibus aliquet. Sed tortor diam, porttitor at metus non, placerat consequat lacus. Pellentesque accumsan mi a turpis pharetra, a mollis nisi posuere.',
+    body: 'Nam lacinia magna et dui dapibus aliquet. Sed tortor diam, porttitor at metus non, placerat consequat lacus. Pellentesque accumsan mi a turpis pharetra, a mollis nisi posuere, porta nisl ac, finibus lorem.',
   },
   {
     id: 5,
